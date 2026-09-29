@@ -1,0 +1,38 @@
+# 原始数据、模型产物与个人记录只保存在本地。
+data/
+artifacts*/
+archive/
+docs/
+reports/
+test-results/
+screenshots/
+# 虚拟环境、缓存与编辑器配置不提交。
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.pyright/
+.vscode/
+.idea/
+# 凭据、数据库、日志与课程参考文档不提交。
+.env
+.env.*
+*.pem
+*.key
+*.sqlite*
+*.db
+*.log
+*.docx
+*.xlsx
+*.pdf
+*.joblib
+*.zip
+*.gz
+.DS_Store
+Thumbs.db
+
+# 结果 CSV 默认不提交，仅保留不含真实数据的示例。
+*.csv
+!sample_urls.csv

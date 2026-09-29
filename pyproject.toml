@@ -1,0 +1,17 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+exclude = ["archive", ".venv", "docs", "artifacts", "artifacts_next"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pyright]
+include = ["phishing_url", "app.py", "tests", "scripts"]
+exclude = ["archive", ".venv", "docs", "artifacts", "artifacts_next"]
+typeCheckingMode = "basic"
+pythonVersion = "3.12"
