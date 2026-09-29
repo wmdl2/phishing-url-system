@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from collections.abc import Sequence
 from pathlib import Path
 
@@ -26,6 +27,9 @@ def load_bundle(path: Path) -> dict:
         or bundle.get("feature_schema_version") != FEATURE_SCHEMA_VERSION
     ):
         raise ValueError("模型特征版本与当前程序不一致，请重新训练")
+    code_hash = hashlib.sha256(Path(__file__).with_name("features.py").read_bytes()).hexdigest()
+    if bundle.get("feature_code_sha256") != code_hash:
+        raise ValueError("特征提取代码与模型训练版本不一致，请重新训练")
     return bundle
 
 

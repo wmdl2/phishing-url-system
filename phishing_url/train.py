@@ -236,6 +236,7 @@ def run_training(
         "threshold": threshold,
         "feature_names": FEATURE_NAMES,
         "feature_schema_version": FEATURE_SCHEMA_VERSION,
+        "feature_code_sha256": material["feature_code_sha256"],
         "model_version": model_version,
     }
     joblib.dump(bundle, output / "model.joblib")
@@ -269,6 +270,7 @@ def run_training(
         "timing": timing,
         "feature_names": list(FEATURE_NAMES),
         "feature_schema_version": FEATURE_SCHEMA_VERSION,
+        "feature_code_sha256": material["feature_code_sha256"],
         "dataset_sha256": cleaning["dataset_sha256"],
         "source_hashes": cleaning["source_hashes"],
         "seed": seed,

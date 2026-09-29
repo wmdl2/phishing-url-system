@@ -36,3 +36,6 @@ Thumbs.db
 # 结果 CSV 默认不提交，仅保留不含真实数据的示例。
 *.csv
 !sample_urls.csv
+
+# 课程文档生成工具仅保留本地，不上传课程报告正文。
+generate_reports.py
