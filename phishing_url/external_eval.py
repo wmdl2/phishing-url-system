@@ -19,7 +19,7 @@ from phishing_url.train import PROJECT_DIR, _plot_confusion, score_predictions
 
 
 def evaluate_external(source: Path, artifacts: Path, baseline_dir: Path | None = None) -> dict:
-    """排除开发数据中任何主机；中期模型在同一批有效样本上作对照。"""
+    """排除开发数据中任何主机；参考模型在同一批有效样本上作对照。"""
     data = pd.read_csv(source, usecols=["url", "label"], dtype=str)
     source_rows = len(data)
     data = pd.DataFrame(data.loc[data["label"].isin(["benign", "phish"])])
@@ -32,7 +32,7 @@ def evaluate_external(source: Path, artifacts: Path, baseline_dir: Path | None =
         feature_file = baseline_dir / "source/phishing_url/features.py"
         spec = importlib.util.spec_from_file_location("midterm_features", feature_file)
         if spec is None or spec.loader is None:
-            raise ValueError("无法读取中期特征代码")
+            raise ValueError("无法读取参考模型的特征代码")
         module = importlib.util.module_from_spec(spec)
         sys.modules[spec.name] = module
         spec.loader.exec_module(module)

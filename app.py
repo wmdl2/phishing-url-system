@@ -186,7 +186,7 @@ def experiments_page(metadata: dict) -> None:
         )
         comparison = {"当前模型": external["metrics"]}
         if "midterm_on_same_samples" in external:
-            comparison["中期模型（同一批样本）"] = external["midterm_on_same_samples"]
+            comparison["参考模型（同一批样本）"] = external["midterm_on_same_samples"]
         st.dataframe(metric_table(comparison), hide_index=True)
         st.warning("正常网址仍可能被误报，不能将本原型用于真实拦截；历史测试不能证明未来始终有效。")
     st.subheader("参数变化曲线")
@@ -214,7 +214,7 @@ def main() -> None:
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     register_model(DATABASE, metadata)
     page = st.sidebar.radio("功能", ["单条检测", "批量检测", "检测历史", "实验结果"])
-    st.sidebar.caption("仅分析网址文本。本系统是课程实践原型。")
+    st.sidebar.caption("仅分析网址文本，不访问目标网页。")
     if page == "单条检测":
         single_page(bundle)
     elif page == "批量检测":

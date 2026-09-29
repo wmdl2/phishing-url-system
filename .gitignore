@@ -1,4 +1,4 @@
-# 原始数据、模型产物与个人记录只保存在本地。
+# 原始数据、模型产物与检测记录只保存在本地。
 data/
 artifacts*/
 archive/
@@ -16,9 +16,10 @@ __pycache__/
 .pyright/
 .vscode/
 .idea/
-# 凭据、数据库、日志与课程参考文档不提交。
+# 凭据、数据库、日志与本地参考文档不提交。
 .env
 .env.*
+.streamlit/secrets.toml
 *.pem
 *.key
 *.sqlite*
@@ -37,5 +38,5 @@ Thumbs.db
 *.csv
 !sample_urls.csv
 
-# 课程文档生成工具仅保留本地，不上传课程报告正文。
+# 本地文档生成工具不提交。
 generate_reports.py
